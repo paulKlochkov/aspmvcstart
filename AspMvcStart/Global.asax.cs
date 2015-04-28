@@ -13,6 +13,7 @@ namespace AspMvcStart
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            //Comment
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

@@ -8,6 +8,7 @@ namespace AspMvcStart
     {
         public void Configuration(IAppBuilder app)
         {
+            //Change
             ConfigureAuth(app);
         }
     }
