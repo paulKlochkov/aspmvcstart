@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataBaseLaeyr.DataLayreEntity.Interface
 {
-    interface IEntity
+   public interface IEntity
     {
         int Id { get; set; }
     }

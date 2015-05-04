@@ -5,50 +5,83 @@ using System.Text;
 using System.Threading.Tasks;
 using DataBaseLaeyr.Connection;
 using DataBaseLaeyr.Repository.Interfeic;
+using DataBaseLaeyr.DataLayreEntity.Entity;
+using DataBaseLaeyr.DataLayreEntity.Interface;
+using System.Data.SqlClient;
+using System.Data.Common;
+
 
 namespace DataBaseLaeyr.Repository.Repositorys
 {
     class UserRepository:IUserRepository
     {
 
+        #region SQL COMMANDS
+        private const string SelectAllQuery = @"select * from Users";
+        private const string SelectByIdQuery = @"select * from Persons where PersonId = @personId";
+        private const string InsertQuery = @"insert into Persons (FirstName,SecondName,LastName) values(@firstName,@secondName,@lastName)";
+        private const string DeleteQuery = @"delete from Persons where Persons.PersonId = @personId";
+        private const string CountQuery = @"select count(PersonId) from Persons";
+        private const string FindQuery = @"SELECT TOP 1 *
+                                                    FROM Persons
+                                                    where [PersonId] = @personId";
+        private const string UpdateQuery = @"UPDATE [dbo].[Persons]
+                                            SET [FirstName] = @firstName
+                                            ,[SecondName] = @secondName
+                                            ,[LastName] = @lastName
+                                             WHERE [PersonId] = @personId";
+        #endregion
 
 
+        private SqlConnection _connection = new ExpenceSqlDataConnectorFactory().OpenNewConnection();
 
-        private ExpenceSqlDataConnector _connection = new ExpenceSqlDataConnector();
-
-        public IEnumerable<DataLayreEntity.Interface.IRole> GetUserRole(DataLayreEntity.Interface.IUser user)
+        public IEnumerable<IRole> GetUserRole(IUser user)
         {
             throw new NotImplementedException();
         }
 
-        public DataLayreEntity.Interface.IEntity Create(DataLayreEntity.Interface.IEntity enytity)
+        public IEntity Create(IEntity enytity)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(DataLayreEntity.Interface.IEntity entity)
+        public void Delete(IEntity enytity)
         {
             throw new NotImplementedException();
         }
 
-        public DataLayreEntity.Interface.IEntity Update(int id, DataLayreEntity.Interface.IEntity entity)
+        public IEntity Update(int id, IEntity enytity)
         {
             throw new NotImplementedException();
         }
 
-        public DataLayreEntity.Interface.IEntity Update(DataLayreEntity.Interface.IEntity entity)
+        public IEntity Update(IEntity enytity)
         {
             throw new NotImplementedException();
         }
 
-        public DataLayreEntity.Interface.IEntity Get(int id)
+        public IEntity Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<DataLayreEntity.Interface.IEntity> GetAll()
+        public IEnumerable<IEntity> GetAll()
         {
-            throw new NotImplementedException();
+            List<IUser> users = new List<IUser>();
+            using (_connection = new ExpenceSqlDataConnectorFactory().OpenNewConnection())
+            {
+                SqlCommand command = _connection.CreateCommand();
+                command.CommandText = SelectAllQuery;
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                       // IUser user = new object();// _personAssembler.Assemble(reader);
+                        //users.Add(user);
+                    }
+                }
+            }
+            return users;
         }
     }
 }

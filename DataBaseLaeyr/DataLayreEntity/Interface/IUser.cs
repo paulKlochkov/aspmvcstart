@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataBaseLaeyr.DataLayreEntity.Interface
 {
-    interface IUser:IEntity
+    public interface IUser:IEntity
     {
         string UserName { get; set; }
         string Password { get; set; }

@@ -55,6 +55,7 @@
     <Compile Include="Repository\Interface\IRoleRepository.cs" />
     <Compile Include="Repository\Interface\IUserRepository.cs" />
     <Compile Include="Repository\Repositorys\UserRepository.cs" />
+    <Compile Include="Repository\SqlDataReaderExtention.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
