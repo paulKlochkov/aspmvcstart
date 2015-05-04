@@ -76,8 +76,8 @@ namespace DataBaseLaeyr.Repository.Repositorys
                 {
                     while (reader.Read())
                     {
-                       // IUser user = new object();// _personAssembler.Assemble(reader);
-                        //users.Add(user);
+                        IUser user = reader.UserAdapting();
+                        users.Add(user);
                     }
                 }
             }

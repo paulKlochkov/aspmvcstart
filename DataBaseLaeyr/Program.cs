@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data.Common;
+using DataBaseLaeyr.DataLayreEntity.Interface;
+using DataBaseLaeyr.Repository.Repositorys;
+
 
 namespace DataBaseLaeyr
 {
@@ -48,6 +51,24 @@ namespace DataBaseLaeyr
                 }
           
             }
+
+
+
+
+
+
+
+
+            UserRepository repository = new UserRepository();
+
+            var users = repository.GetAll();
+
+            foreach (IUser user in users)
+            {
+                Console.WriteLine("User name:" + user.UserName);
+                Console.WriteLine("User email:" + user.Email);
+            }
+
 
         }
     }

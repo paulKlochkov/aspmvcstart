@@ -15,8 +15,11 @@ namespace DataBaseLaeyr.Repository
          public static IUser UserAdapting(this SqlDataReader reader)
          {
              return new User{
-             
-
+                 Id = Convert.ToInt32(reader["UserId"]),
+                 UserName = Convert.ToString(reader["UserName"]),
+                 Email = Convert.ToString(reader["Email"]),
+                 Password = Convert.ToString(reader["Password"]),
+                 RoleId  = Convert.ToInt32(reader["RoleId"])
              };
          }
     }

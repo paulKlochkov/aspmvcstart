@@ -10,6 +10,7 @@ namespace DataBaseLaeyr.DataLayreEntity.Interface
     {
         string UserName { get; set; }
         string Password { get; set; }
+        string Email { get; set; }
         int RoleId { get; set; }
     }
 }
