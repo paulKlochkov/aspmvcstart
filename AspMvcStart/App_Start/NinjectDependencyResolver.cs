@@ -16,6 +16,7 @@ namespace AspMvcStart
                 throw new ArgumentNullException("kernel");
             }
             //TODO write bindings here
+            kernel.Bind<Data.Repository.IFileRepositry>().To<Data.Repository.StubFileRepositry>().InSingletonScope();
         }
 
         public static void RegisterNinjectDependencyResolver()

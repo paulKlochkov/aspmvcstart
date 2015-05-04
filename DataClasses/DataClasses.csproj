@@ -46,7 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\FileEntity.cs" />
+    <Compile Include="Common\IFile.cs" />
+    <Compile Include="Repository\IFileRepositry.cs" />
+    <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\StubFileRepositry.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
