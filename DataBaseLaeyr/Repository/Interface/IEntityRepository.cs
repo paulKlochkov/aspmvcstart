@@ -7,13 +7,13 @@ using DataBaseLaeyr.DataLayreEntity.Interface;
 
 namespace DataBaseLaeyr.Repository.Interfeic
 {
-    interface IEntityRepository
+    interface IEntityRepository<TEntity> where TEntity:IEntity
     {
-        IEntity Create(IEntity enytity);
-        void Delete(IEntity entity);
-        IEntity Update(int id, IEntity entity);
-        IEntity Update(IEntity entity);
-        IEntity Get(int id);
-        IEnumerable<IEntity> GetAll();
+        TEntity Create(TEntity enytity);
+        void Delete(TEntity entity);
+        TEntity Update(int id, TEntity entity);
+        TEntity Update(TEntity entity);
+        TEntity Get(int id);
+        IEnumerable<TEntity> GetAll();
     }
 }

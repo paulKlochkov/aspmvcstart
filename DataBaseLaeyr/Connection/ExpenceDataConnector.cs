@@ -5,16 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Data.Common;
 
 namespace DataBaseLaeyr.Connection
 {
-    class ExpenceSqlDataConnector:IDisposable
+    class ExpenceSqlDataConnectorFactory
     {
 
-      public ExpenceSqlDataConnector() : this("") { }
+      public ExpenceSqlDataConnectorFactory() : this("") { }
 
-      public ExpenceSqlDataConnector(string dataConectionStr)
+      public  ExpenceSqlDataConnectorFactory(string dataConectionStr)
         {
             if (!String.IsNullOrEmpty(dataConectionStr)) 
             {
@@ -22,7 +21,7 @@ namespace DataBaseLaeyr.Connection
             }
         }
 
-        public SqlConnection OpenNewConnection()
+        public  SqlConnection OpenNewConnection()
         {
             if (!string.IsNullOrEmpty(_dataConectionStr))
             {
@@ -32,15 +31,15 @@ namespace DataBaseLaeyr.Connection
                     conection.Open();
                     return conection;
                 }
-                catch (Exception ex)
+                catch
                 {
-                    throw ;
+                    throw  new Exception();
                 }
 
             }
             return null;
         }
 
-        private readonly string _dataConectionStr = ConfigurationManager.AppSettings["cnStr"];
+        private  readonly string _dataConectionStr = ConfigurationManager.AppSettings["cnStr"];
     }
 }
