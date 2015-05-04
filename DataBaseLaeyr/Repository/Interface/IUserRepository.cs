@@ -7,7 +7,7 @@ using DataBaseLaeyr.DataLayreEntity.Interface;
 
 namespace DataBaseLaeyr.Repository.Interfeic
 {
-    interface IUserRepository : IEntityRepository
+    interface IUserRepository : IEntityRepository<IUser>
     {
         IEnumerable<IRole> GetUserRole(IUser user);
 

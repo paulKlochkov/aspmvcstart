@@ -40,32 +40,32 @@ namespace DataBaseLaeyr.Repository.Repositorys
             throw new NotImplementedException();
         }
 
-        public IEntity Create(IEntity enytity)
+        public IUser Create(IUser enytity)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(IEntity enytity)
+        public void Delete(IUser enytity)
         {
             throw new NotImplementedException();
         }
 
-        public IEntity Update(int id, IEntity enytity)
+        public IUser Update(int id, IUser enytity)
         {
             throw new NotImplementedException();
         }
 
-        public IEntity Update(IEntity enytity)
+        public IUser Update(IUser enytity)
         {
             throw new NotImplementedException();
         }
 
-        public IEntity Get(int id)
+        public IUser Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<IEntity> GetAll()
+        public IEnumerable<IUser> GetAll()
         {
             List<IUser> users = new List<IUser>();
             using (_connection = new ExpenceSqlDataConnectorFactory().OpenNewConnection())
