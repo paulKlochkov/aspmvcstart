@@ -335,7 +335,7 @@ namespace AspMvcStart.Controllers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
-        private IAuthenticationManager AuthenticationManager
+        private Microsoft.Owin.IAuthenticationManager AuthenticationManager
         {
             get
             {

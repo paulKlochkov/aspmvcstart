@@ -1,7 +1,7 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: Microsoft.Owin.OwinStartupAttribute(typeof(AspMvcStart.Startup))]
+[assembly: OwinStartupAttribute(typeof(AspMvcStart.Startup))]
 namespace AspMvcStart
 {
     public partial class Startup
@@ -9,9 +9,9 @@ namespace AspMvcStart
         public void Configuration(IAppBuilder app)
         {
             //Change
-            
+
             ///Add some changes
-            ConfigureAuth(app);
+            //ConfigureAuth(app);
         }
     }
 }

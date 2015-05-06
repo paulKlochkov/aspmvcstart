@@ -18,14 +18,12 @@ namespace DataBaseLaeyr.Repository.Repositorys
 
         #region SQL COMMANDS
         private const string SelectAllQuery = @"select * from Users";
-        private const string SelectByIdQuery = @"select * from Persons where PersonId = @personId";
-        private const string InsertQuery = @"insert into Persons (FirstName,SecondName,LastName) values(@firstName,@secondName,@lastName)";
-        private const string DeleteQuery = @"delete from Persons where Persons.PersonId = @personId";
-        private const string CountQuery = @"select count(PersonId) from Persons";
-        private const string FindQuery = @"SELECT TOP 1 *
-                                                    FROM Persons
-                                                    where [PersonId] = @personId";
-        private const string UpdateQuery = @"UPDATE [dbo].[Persons]
+        private const string SelectByIdQuery = @"select * from Users where UserId = @UserId";
+        private const string InsertQuery = @"insert into Users (UserName,Email,Password,RoleId) values(@eserName,@email,@password,@roleId)";
+        private const string DeleteQuery = @"delete from Users where Users.UserId = @UserId";
+        private const string FindQuery = @"SELECT TOP 1 * FROM Users
+                                                    where [UserId] = @UserId";
+        private const string UpdateQuery = @"UPDATE [dbo].[Users]
                                             SET [FirstName] = @firstName
                                             ,[SecondName] = @secondName
                                             ,[LastName] = @lastName
@@ -42,7 +40,18 @@ namespace DataBaseLaeyr.Repository.Repositorys
 
         public IUser Create(IUser enytity)
         {
-            throw new NotImplementedException();
+            IUser user = new User();
+            using (_connection = new ExpenceSqlDataConnectorFactory().OpenNewConnection())
+            {
+                SqlCommand command = _connection.CreateCommand();
+                command.CommandText = SelectAllQuery;
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    
+                  
+                }
+            }
+            return user;
         }
 
         public void Delete(IUser enytity)
